@@ -16,6 +16,7 @@ class Time {
   vector<unique_ptr<Jogador>> jogadores;
   map<string, int> tipoJogadores;
   string nomeTime;
+  Time(const Time&);
   Time(string nomeTime);
   int getHabilidadeTotal();
   string getNome();

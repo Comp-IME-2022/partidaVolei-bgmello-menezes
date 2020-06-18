@@ -7,6 +7,14 @@
 #include <string>
 #include <vector>
 
+Time::Time(const Time& time) {
+  for (const auto& jogador : time.jogadores) {
+    this->jogadores.push_back(jogador->clone());
+  }
+  this->nomeTime = time.nomeTime;
+  this->tipoJogadores = time.tipoJogadores;
+}
+
 Time ::Time(string nomeTime) {
   /* Construtor da classe time */
 

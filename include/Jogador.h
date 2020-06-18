@@ -1,6 +1,7 @@
 #ifndef JOGADOR_H
 #define JOGADOR_H
 
+#include <memory>
 #include <string>
 
 using namespace std;
@@ -18,6 +19,7 @@ class Jogador {
   string getNome();
   string getPosicao();
   virtual int getHabilidade() = 0;
+  virtual unique_ptr<Jogador> clone() = 0;
 };
 
 class Levantador : public Jogador {
@@ -25,6 +27,10 @@ class Levantador : public Jogador {
   Levantador(string nome, int vlrAtaque, int vlrDefesa, int vlrPasse,
              int habilidadeAdi);
   int getHabilidade();
+
+  unique_ptr<Jogador> clone() {
+    return unique_ptr<Jogador>(new Levantador(*this));
+  }
 };
 
 class Libero : public Jogador {
@@ -32,6 +38,7 @@ class Libero : public Jogador {
   Libero(string nome, int vlrAtaque, int vlrDefesa, int vlrPasse,
          int habilidadeAdi);
   int getHabilidade();
+  unique_ptr<Jogador> clone() { return unique_ptr<Jogador>(new Libero(*this)); }
 };
 
 class Meia : public Jogador {
@@ -39,6 +46,7 @@ class Meia : public Jogador {
   Meia(string nome, int vlrAtaque, int vlrDefesa, int vlrPasse,
        int habilidadeAdi);
   int getHabilidade();
+  unique_ptr<Jogador> clone() { return unique_ptr<Jogador>(new Meia(*this)); }
 };
 
 class Ponta : public Jogador {
@@ -46,6 +54,7 @@ class Ponta : public Jogador {
   Ponta(string nome, int vlrAtaque, int vlrDefesa, int vlrPasse,
         int habilidadeAdi);
   int getHabilidade();
+  unique_ptr<Jogador> clone() { return unique_ptr<Jogador>(new Ponta(*this)); }
 };
 
 class Oposto : public Jogador {
@@ -53,6 +62,7 @@ class Oposto : public Jogador {
   Oposto(string nome, int vlrAtaque, int vlrDefesa, int vlrPasse,
          int habilidadeAdi);
   int getHabilidade();
+  unique_ptr<Jogador> clone() { return unique_ptr<Jogador>(new Oposto(*this)); }
 };
 
 #endif

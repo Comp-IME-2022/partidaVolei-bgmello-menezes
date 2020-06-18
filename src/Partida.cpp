@@ -8,6 +8,9 @@ inline double Partida::randd() {
   return (double)rand() / ((double)RAND_MAX + 1);
 }
 
+Partida::Partida(const Time& timeA, const Time& timeB)
+    : timeA(timeA), timeB(timeB) {}
+
 Partida::Partida(std::string nomeA, std::string nomeB)
     : timeA(nomeA), timeB(nomeB) {
   this->pointsA = this->pointsB = 0;

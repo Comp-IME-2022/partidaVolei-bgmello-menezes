@@ -21,6 +21,8 @@ class Partida {
   bool timeIsValid(string nomeTime);
 
  public:
+  Partida(const Time&, const Time&);
+
   Partida(string nomeA, string nomeB);
 
   bool isEnded();
