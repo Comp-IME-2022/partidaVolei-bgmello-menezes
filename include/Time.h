@@ -9,6 +9,9 @@
 #include "Jogador.h"
 using namespace std;
 
+
+/* Classe do time */
+
 class Time {
  public:
   vector<unique_ptr<Jogador>> jogadores;
