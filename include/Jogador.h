@@ -5,6 +5,8 @@
 
 using namespace std;
 
+*/ Classe base para os jogadores */ 
+
 class Jogador {
  public:
   const int pesoAtaque, pesoDefesa, pesoPasse;
