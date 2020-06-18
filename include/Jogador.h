@@ -5,7 +5,7 @@
 
 using namespace std;
 
-*/ Classe base para os jogadores */ 
+/* Classe base para os jogadores */ 
 
 class Jogador {
  public:
