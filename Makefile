@@ -1,3 +1,10 @@
+CC := g++
+SRCDIR := src
+INCLUDEDIR := ./include
+TARGET := bin/jogoDeVolei
+
+SOURCES := $(shell find $(SRCDIR) -type f)
+
 .PHONY: all
 all: format build
 
@@ -6,7 +13,6 @@ format:
 	clang-format src/* include/* -i
 
 .PHONY: build
-build: src/main.cpp src/Partida.cpp src/Time.cpp src/Jogador.cpp
+build: $(SOURCES)
 	mkdir -p bin/
-	cd src/
-	g++ -o bin/jogoDeVolei src/main.cpp src/Partida.cpp src/Time.cpp src/Jogador.cpp -I./include
+	$(CC) -o $(TARGET) $(SOURCES) -I$(INCLUDEDIR)
