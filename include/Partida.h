@@ -33,5 +33,7 @@ class Partida {
 
   bool resetPartida();
 
+  void printJogadores(string nomeTime);
+
   string showPlacar();
 };

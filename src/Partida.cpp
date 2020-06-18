@@ -129,6 +129,17 @@ bool Partida::addPoint(string nomeTime) {
   return ended;
 }
 
+void Partida::printJogadores(string nomeTime) {
+  if (nomeTime == this->timeA.getNome()) {
+    this->timeA.printJogadores();
+  }
+
+  else if (nomeTime == this->timeB.getNome()) {
+    this->timeB.printJogadores();
+  }
+  return;
+}
+
 string Partida::showPlacar() {
   stringstream placar;
 
