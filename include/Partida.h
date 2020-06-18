@@ -23,6 +23,8 @@ class Partida {
  public:
   Partida(string nomeA, string nomeB);
 
+  bool isEnded();
+
   bool addJogador(string nomeTime, string nomeJogador, string posicao,
                   int vlrAtaque, int vlrDefesa, int vlrPasse,
                   int habilidadeAdi);

@@ -1,7 +1,5 @@
 #include "Jogador.h"
 
-
-
 Jogador ::Jogador(string nome, string posicao, int vlrAtaque, int vlrDefesa,
                   int vlrPasse, int habilidaeAdi, int pesoAtaque,
                   int pesoDefesa, int pesoPasse)
@@ -10,8 +8,8 @@ Jogador ::Jogador(string nome, string posicao, int vlrAtaque, int vlrDefesa,
       pesoPasse(pesoPasse),
       nome(nome),
       posicao(posicao) {
-/* Construtor da classe jogador */
- 
+  /* Construtor da classe jogador */
+
   this->vlrAtaque = vlrAtaque;
   this->vlrDefesa = vlrDefesa;
   this->vlrPasse = vlrPasse;
@@ -59,7 +57,7 @@ Meia ::Meia(string nome, int vlrAtaque, int vlrDefesa, int vlrPasse,
             int habilidadeAdi)
     : Jogador(nome, "meia", vlrAtaque, vlrDefesa, vlrPasse, habilidadeAdi, 4, 3,
               1) {}
-              
+
 /* Retorna a habilidade do meia */
 int Meia ::getHabilidade() {
   return (this->vlrAtaque * pesoAtaque + this->vlrDefesa * pesoDefesa +
@@ -71,7 +69,7 @@ Ponta ::Ponta(string nome, int vlrAtaque, int vlrDefesa, int vlrPasse,
               int habilidadeAdi)
     : Jogador(nome, "ponta", vlrAtaque, vlrDefesa, vlrPasse, habilidadeAdi, 4,
               3, 3) {}
-              
+
 /* Retorna a habilidade do ponta */
 int Ponta ::getHabilidade() {
   return (this->vlrAtaque * pesoAtaque + this->vlrDefesa * pesoDefesa +
@@ -83,7 +81,7 @@ Oposto ::Oposto(string nome, int vlrAtaque, int vlrDefesa, int vlrPasse,
                 int habilidadeAdi)
     : Jogador(nome, "oposto", vlrAtaque, vlrDefesa, vlrPasse, habilidadeAdi, 6,
               3, 1) {}
-              
+
 /* Retorna a habilidade do oposto */
 int Oposto ::getHabilidade() {
   return (this->vlrAtaque * pesoAtaque + this->vlrDefesa * pesoDefesa +

@@ -1,5 +1,6 @@
 #include <Partida.h>
 
+#include <iomanip>
 #include <sstream>
 #include <string>
 
@@ -91,6 +92,8 @@ bool Partida::playPoint() {
   return this->ended;
 }
 
+bool Partida::isEnded() { return this->ended; }
+
 bool Partida::addPoint(string nomeTime) {
   if (this->ended) return true;
 
@@ -142,10 +145,10 @@ void Partida::printJogadores(string nomeTime) {
 string Partida::showPlacar() {
   stringstream placar;
 
-  placar << "Nome do Time\t\tSets\t\tPontos\t\tSacando" << endl;
-  placar << this->timeA.getNome() << "\t\t" << this->setsA << "\t\t"
+  placar << setw(10) << "Nome do Time\t\tSets\t\tPontos\t\tSacando" << endl;
+  placar << setw(10) << this->timeA.getNome() << "\t\t" << this->setsA << "\t\t"
          << this->pointsA << "\t\t" << (this->sacadorA ? "*" : "") << endl;
-  placar << this->timeB.getNome() << "\t\t" << this->setsB << "\t\t"
+  placar << setw(10) << this->timeB.getNome() << "\t\t" << this->setsB << "\t\t"
          << this->pointsB << "\t\t" << (this->sacadorA ? "" : "*") << endl;
 
   return placar.str();
