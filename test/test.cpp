@@ -25,16 +25,16 @@ int main() {
   A.addJogador("EUA", "Executivo7", "ponta", 10, 10, 30, 10);
 
   cout << "Brasil" << endl;
-  A.printJogadores("Brasil");
+  A.printJogadores(cout, "Brasil");
 
   cout << endl << endl;
   cout << "EUA" << endl;
-  A.printJogadores("EUA");
+  A.printJogadores(cout, "EUA");
 
   for (int i = 1; not A.isEnded(); i++) {
     A.playPoint();
-    if (i % 50 == 0) cout << A.showPlacar() << endl;
+    if (i % 50 == 0) cout << A << endl;
   }
-  cout << A.showPlacar() << endl;
+  cout << A << endl;
   return 0;
 }

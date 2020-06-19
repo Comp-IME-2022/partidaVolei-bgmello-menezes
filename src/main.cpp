@@ -110,7 +110,7 @@ int main() {
                                       vlrPasse, habilidadeAdi);
           cout << "Jogador adicionado com sucesso\n\n";
           for (auto time = times.begin(); time != times.end(); ++time) {
-            time->second->printJogadores();
+            cout << *(time->second);
           }
         } else {
           cout << "Posicao nao existente\n\n";
@@ -166,7 +166,7 @@ int main() {
               cout << "\n\n";
               for (int i = 0; i < numPontos or partida.isEnded(); ++i)
                 partida.playPoint();
-              cout << partida.showPlacar();
+              cout << partida;
               cout << "\n\n";
               cout << "Deseja simular mais pontos? (Digite 0 caso nao)\n\n";
             } while (numPontos != 0);
@@ -180,7 +180,7 @@ int main() {
               cout << "\n\n";
               for (int i = 0; i < numPontos or partida.isEnded(); ++i)
                 partida.playPoint();
-              cout << partida.showPlacar();
+              cout << partida;
               cout << "\n\n";
               cout << "Deseja simular mais pontos? (Digite 0 caso nao)\n\n";
             } while (numPontos != 0);

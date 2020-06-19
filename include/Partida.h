@@ -52,7 +52,7 @@ class Partida {
 
   bool resetPartida();
 
-  void printJogadores(string nomeTime);
+  void printJogadores(ostream& o, string nomeTime);
 
-  string showPlacar();
+  friend ostream& operator<<(ostream& o, const Partida& partida);
 };

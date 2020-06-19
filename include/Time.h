@@ -19,12 +19,12 @@ class Time {
   Time(const Time&);
   Time(string nomeTime);
   int getHabilidadeTotal();
-  string getNome();
+  string getNome() const;
   bool isValid();
   bool addJogador(string nome, string posicao, int vlrAtaque, int vlrDefesa,
                   int vlrPasse, int habilidadeAdi);
   bool removeJogador(string nome);
-  void printJogadores();
+  friend ostream& operator<<(ostream&, const Time&);
 };
 
 #endif

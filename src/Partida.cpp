@@ -200,38 +200,36 @@ bool Partida::addPoint(string nomeTime) {
  * Mostra os jogadores do time pelo nome
  * Se o time nao existe nao mostra nada.
  */
-void Partida::printJogadores(string nomeTime) {
+void Partida::printJogadores(ostream& o, string nomeTime) {
   if (nomeTime == this->timeA.getNome()) {
-    this->timeA.printJogadores();
+    o << this->timeA;
   }
 
   else if (nomeTime == this->timeB.getNome()) {
-    this->timeB.printJogadores();
+    o << this->timeB;
   }
   return;
 }
 /**
  * Mostra o historico do placar
  */
-string Partida::showPlacar() {
-  stringstream placar;
+ostream& operator<<(ostream& o, const Partida& partida) {
+  o << setw(10) << "Nome do Time\t\t";
+  for (int i = 1; i <= partida.setsA.size(); i++) o << "Set " << i << "\t\t";
 
-  placar << setw(10) << "Nome do Time\t\t";
-  for (int i = 1; i <= this->setsA.size(); i++) placar << "Set " << i << "\t\t";
+  o << "Pontos\t\tSacando" << endl;
 
-  placar << "Pontos\t\tSacando" << endl;
+  o << setw(10) << partida.timeA.getNome() << "\t\t";
+  for (int i = 0; i < partida.setsA.size(); i++)
+    o << partida.setsA[i] << "\t\t";
 
-  placar << setw(10) << this->timeA.getNome() << "\t\t";
-  for (int i = 0; i < this->setsA.size(); i++)
-    placar << this->setsA[i] << "\t\t";
+  o << partida.pointsA << "\t\t" << (partida.sacadorA ? "*" : "") << endl;
 
-  placar << this->pointsA << "\t\t" << (this->sacadorA ? "*" : "") << endl;
+  o << setw(10) << partida.timeB.getNome() << "\t\t";
+  for (int i = 0; i < partida.setsB.size(); i++)
+    o << partida.setsB[i] << "\t\t";
 
-  placar << setw(10) << this->timeB.getNome() << "\t\t";
-  for (int i = 0; i < this->setsB.size(); i++)
-    placar << this->setsB[i] << "\t\t";
+  o << partida.pointsB << "\t\t" << (partida.sacadorA ? "" : "*") << endl;
 
-  placar << this->pointsB << "\t\t" << (this->sacadorA ? "" : "*") << endl;
-
-  return placar.str();
+  return o;
 }

@@ -25,7 +25,7 @@ Time ::Time(string nomeTime) {
 
 /* Retorna o nome do time */
 
-string Time ::getNome() { return this->nomeTime; }
+string Time ::getNome() const { return this->nomeTime; }
 
 bool Time ::isValid() {
   /* Verifica se o time está de acordo com as regras */
@@ -122,29 +122,29 @@ bool Time ::removeJogador(string nome) {
   return false;
 }
 
-void Time ::printJogadores() {
+ostream& operator<<(ostream& o, const Time& time) {
   /* Printa as informações dos jogadores */
 
-  if ((int)jogadores.size() == 0) {
-    cout << "Nao ha jogadores nesse time\n\n";
-    return;
+  if ((int)time.jogadores.size() == 0) {
+    o << "Nao ha jogadores nesse time\n\n";
+    return o;
   }
-  cout << "Os jogadores do time sao" << endl << endl;
-  cout << setw(10) << setfill(' ') << "Nome\t\t";
-  cout << setw(10) << setfill(' ') << "Posicao\t\t";
-  cout << setw(10) << setfill(' ') << "Valor ataque\t\t";
-  cout << setw(10) << setfill(' ') << "Valor defesa\t\t";
-  cout << setw(10) << setfill(' ') << "Valor passe\t\t";
-  cout << setw(10) << setfill(' ') << "Habilidade total" << endl;
+  o << "Os jogadores do time sao" << endl << endl;
+  o << setw(10) << setfill(' ') << "Nome\t\t";
+  o << setw(10) << setfill(' ') << "Posicao\t\t";
+  o << setw(10) << setfill(' ') << "Valor ataque\t\t";
+  o << setw(10) << setfill(' ') << "Valor defesa\t\t";
+  o << setw(10) << setfill(' ') << "Valor passe\t\t";
+  o << setw(10) << setfill(' ') << "Habilidade total" << endl;
 
-  for (int i = 0; i < (int)jogadores.size(); ++i) {
-    cout << setw(10) << setfill(' ') << jogadores[i]->nome << "\t\t";
-    cout << setw(10) << setfill(' ') << jogadores[i]->posicao << "\t\t";
-    cout << setw(10) << setfill(' ') << jogadores[i]->vlrAtaque << "\t\t";
-    cout << setw(10) << setfill(' ') << jogadores[i]->vlrDefesa << "\t\t";
-    cout << setw(10) << setfill(' ') << jogadores[i]->vlrPasse << "\t\t";
-    cout << setw(10) << setfill(' ') << jogadores[i]->getHabilidade();
-    cout << endl;
+  for (int i = 0; i < (int)time.jogadores.size(); ++i) {
+    o << setw(10) << setfill(' ') << time.jogadores[i]->nome << "\t\t";
+    o << setw(10) << setfill(' ') << time.jogadores[i]->posicao << "\t\t";
+    o << setw(10) << setfill(' ') << time.jogadores[i]->vlrAtaque << "\t\t";
+    o << setw(10) << setfill(' ') << time.jogadores[i]->vlrDefesa << "\t\t";
+    o << setw(10) << setfill(' ') << time.jogadores[i]->vlrPasse << "\t\t";
+    o << setw(10) << setfill(' ') << time.jogadores[i]->getHabilidade();
+    o << endl;
   }
-  return;
+  return o;
 }
