@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "Time.h"
 
@@ -10,9 +11,10 @@ using namespace std;
 
 class Partida {
   Time timeA, timeB;
-  bool sacadorA, ended;
+  bool primeiroSacadorA, sacadorA, ended;
   int pointsA, pointsB;
-  int setsA, setsB;
+  int numSetsA, numSetsB;
+  vector<int> setsA, setsB;
 
   inline double randd();
 
