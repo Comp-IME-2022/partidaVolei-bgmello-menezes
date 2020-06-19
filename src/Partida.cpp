@@ -4,10 +4,15 @@
 #include <sstream>
 #include <string>
 
+/**
+ * Gera um numero aleatorio de 0 a 1
+ */
 inline double Partida::randd() {
   return (double)rand() / ((double)RAND_MAX + 1);
 }
-
+/**
+ * Construtor que recebe dois times e se o timeA sera o sacador inicial
+ */
 Partida::Partida(const Time& timeA, const Time& timeB, bool sacadorA)
     : timeA(timeA),
       timeB(timeB),
@@ -20,6 +25,12 @@ Partida::Partida(const Time& timeA, const Time& timeB, bool sacadorA)
   this->ended = false;
 }
 
+/**
+ *
+ * Construtor que recebe o nome dos dois times e se o timeA sera o sacador
+ * inicial Os times serao construidos vazios, logo devemos adicionar os jogadors
+ * nos times pela funcao add jogador
+ */
 Partida::Partida(std::string nomeA, std::string nomeB, bool sacadorA)
     : timeA(nomeA), timeB(nomeB) {
   this->pointsA = this->pointsB = 0;
@@ -30,6 +41,15 @@ Partida::Partida(std::string nomeA, std::string nomeB, bool sacadorA)
   this->ended = false;
 }
 
+/**
+ * Adiciona jogador em um time
+ *
+ * Recebe o nome do time, nome do jogador, sua posicao, valor do ataque, valor
+ * de defesa e habilidade adicional.
+ *
+ * Se o nome do time nao existe ou nao e possivel adicionar o jogador no time
+ * a funcao retorna falso.
+ */
 bool Partida::addJogador(string nomeTime, string nomeJogador, string posicao,
                          int vlrAtaque, int vlrDefesa, int vlrPasse,
                          int habilidadeAdi) {
@@ -46,6 +66,12 @@ bool Partida::addJogador(string nomeTime, string nomeJogador, string posicao,
   return false;
 }
 
+/**
+ * Remove um jogador de um time pelo nome.
+ *
+ * Se o time nao existe ou se o jogador nao esta
+ * no time o metodo retorna falso.
+ */
 bool Partida::removeJogador(string nomeTime, string nomeJogador) {
   if (nomeTime == this->timeA.getNome()) {
     return this->timeA.removeJogador(nomeJogador);
@@ -57,7 +83,10 @@ bool Partida::removeJogador(string nomeTime, string nomeJogador) {
 
   return false;
 }
-
+/**
+ * Retorna se um time e valido pelo nome
+ * Se o time nao e valido ou nao existe retorna falso.
+ */
 bool Partida::timeIsValid(string nomeTime) {
   if (nomeTime == this->timeA.getNome()) {
     return this->timeA.isValid();
@@ -69,7 +98,10 @@ bool Partida::timeIsValid(string nomeTime) {
 
   return false;
 }
-
+/**
+ * Recomeca a partida
+ * Reseta todos os atributos exceto os times.
+ */
 bool Partida::resetPartida() {
   this->setsA.clear();
   this->setsB.clear();
@@ -80,7 +112,10 @@ bool Partida::resetPartida() {
   this->ended = false;
   return true;
 }
-
+/**
+ * Joga um ponto baseado no modelo probabilistico definido
+ *
+ */
 bool Partida::playPoint() {
   string ganhador("");
 
@@ -109,8 +144,14 @@ bool Partida::playPoint() {
   return this->ended;
 }
 
+/**
+ * Retorna se a partida ja esta terminada
+ */
 bool Partida::isEnded() { return this->ended; }
-
+/**
+ * Adiciona um ponto a um time, se o jogo
+ * ja estiver terminado, entao nao faz nada
+ */
 bool Partida::addPoint(string nomeTime) {
   if (this->ended) return true;
 
@@ -155,7 +196,10 @@ bool Partida::addPoint(string nomeTime) {
   this->ended = ended;
   return swapSet;
 }
-
+/**
+ * Mostra os jogadores do time pelo nome
+ * Se o time nao existe nao mostra nada.
+ */
 void Partida::printJogadores(string nomeTime) {
   if (nomeTime == this->timeA.getNome()) {
     this->timeA.printJogadores();
@@ -166,7 +210,9 @@ void Partida::printJogadores(string nomeTime) {
   }
   return;
 }
-
+/**
+ * Mostra o historico do placar
+ */
 string Partida::showPlacar() {
   stringstream placar;
 

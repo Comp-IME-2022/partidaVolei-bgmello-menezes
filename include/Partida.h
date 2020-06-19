@@ -8,7 +8,20 @@
 #include "Time.h"
 
 using namespace std;
-
+/**
+ * Implementacao da classe Partida
+ *
+ * Nesta classe temos dois times e podemos jogar uma partida de Volei utilizando
+ * as habilidades dos times por meio de um modelo probabilistico.
+ *
+ * Para podermos jogar o jogo os dois times devem ser validos.
+ *
+ * A partida pode ser reinicidada utilizando o metodo resetPartida
+ *
+ * Podemos acompanhar a evolucao do jogo por meio do metodo showPlacar
+ *
+ * Para visualizarmos os jogadores dos times utilizamos o metodo printJogadores
+ */
 class Partida {
   Time timeA, timeB;
   bool primeiroSacadorA, sacadorA, ended;
