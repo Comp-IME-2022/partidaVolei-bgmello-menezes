@@ -7,7 +7,7 @@ using namespace std;
 int main() {
   srand(time(NULL));
 
-  Partida A("Brasil", "EUA");
+  Partida A("Brasil", "EUA", true);
   A.addJogador("Brasil", "Mordomo1", "levantador", 40, 10, 30, 10);
   A.addJogador("Brasil", "Mordomo2", "libero", 10, 10, 30, 10);
   A.addJogador("Brasil", "Mordomo3", "oposto", 10, 10, 30, 10);

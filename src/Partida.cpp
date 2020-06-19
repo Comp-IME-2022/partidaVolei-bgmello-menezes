@@ -8,14 +8,18 @@ inline double Partida::randd() {
   return (double)rand() / ((double)RAND_MAX + 1);
 }
 
-Partida::Partida(const Time& timeA, const Time& timeB)
-    : timeA(timeA), timeB(timeB) {}
+Partida::Partida(const Time& timeA, const Time& timeB, bool sacadorA)
+    : timeA(timeA), timeB(timeB), sacadorA(sacadorA) {
+  this->pointsA = this->pointsB = 0;
+  this->setsA = this->setsB = 0;
+  this->ended = false;
+}
 
-Partida::Partida(std::string nomeA, std::string nomeB)
+Partida::Partida(std::string nomeA, std::string nomeB, bool sacadorA)
     : timeA(nomeA), timeB(nomeB) {
   this->pointsA = this->pointsB = 0;
   this->setsA = this->setsB = 0;
-  this->sacadorA = true;
+  this->sacadorA = sacadorA;
   this->ended = false;
 }
 

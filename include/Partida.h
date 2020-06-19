@@ -21,9 +21,9 @@ class Partida {
   bool timeIsValid(string nomeTime);
 
  public:
-  Partida(const Time&, const Time&);
+  Partida(const Time&, const Time&, bool sacadorA);
 
-  Partida(string nomeA, string nomeB);
+  Partida(string nomeA, string nomeB, bool sacadorA);
 
   bool isEnded();
 
