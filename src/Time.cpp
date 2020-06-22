@@ -1,11 +1,6 @@
 #include "Time.h"
 
 #include <iomanip>
-#include <iostream>
-#include <map>
-#include <memory>
-#include <string>
-#include <vector>
 
 Time::Time(const Time& time) {
   for (const auto& jogador : time.jogadores) {

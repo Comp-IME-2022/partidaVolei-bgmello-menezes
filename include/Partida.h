@@ -1,5 +1,5 @@
-#include <stdlib.h>
-#include <time.h>
+#ifndef PARTIDA_H
+#define PARTIDA_H
 
 #include <iostream>
 #include <string>
@@ -56,3 +56,5 @@ class Partida {
 
   friend ostream& operator<<(ostream& o, const Partida& partida);
 };
+
+#endif

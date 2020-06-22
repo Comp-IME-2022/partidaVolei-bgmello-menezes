@@ -1,8 +1,6 @@
 #include <Partida.h>
 
 #include <iomanip>
-#include <sstream>
-#include <string>
 
 /**
  * Gera um numero aleatorio de 0 a 1
