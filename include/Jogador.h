@@ -9,15 +9,19 @@ using namespace std;
 /* Classe base para os jogadores */
 
 class Jogador {
- public:
+ protected:
   const int pesoAtaque, pesoDefesa, pesoPasse;
   const string posicao, nome;
   int vlrAtaque, vlrDefesa, vlrPasse, habilidadeAdi;
+ public:
   Jogador(string nome, string posicao, int vlrAtaque, int vlrDefesa,
           int vlrPasse, int habilidadeAdi, int pesoAtaque, int pesoDefesa,
           int pesoPasse);
   string getNome();
   string getPosicao();
+  int getvlrAtaque();
+  int getvlrDefesa();
+  int getvlrPasse();
   virtual int getHabilidade() = 0;
   virtual unique_ptr<Jogador> clone() = 0;
 };

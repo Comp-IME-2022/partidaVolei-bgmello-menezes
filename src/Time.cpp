@@ -108,8 +108,8 @@ bool Time ::removeJogador(string nome) {
    */
 
   for (int i = 0; i < (int)jogadores.size(); ++i) {
-    if (jogadores[i]->nome == nome) {
-      tipoJogadores[jogadores[i]->posicao]--;
+    if (jogadores[i]->getNome() == nome) {
+      tipoJogadores[jogadores[i]->getPosicao()]--;
       jogadores.erase(jogadores.begin() + i);
       return true;
     }
@@ -133,11 +133,11 @@ ostream& operator<<(ostream& o, const Time& time) {
   o << setw(10) << setfill(' ') << "Habilidade total" << endl;
 
   for (int i = 0; i < (int)time.jogadores.size(); ++i) {
-    o << setw(10) << setfill(' ') << time.jogadores[i]->nome << "\t\t";
-    o << setw(10) << setfill(' ') << time.jogadores[i]->posicao << "\t\t";
-    o << setw(10) << setfill(' ') << time.jogadores[i]->vlrAtaque << "\t\t";
-    o << setw(10) << setfill(' ') << time.jogadores[i]->vlrDefesa << "\t\t";
-    o << setw(10) << setfill(' ') << time.jogadores[i]->vlrPasse << "\t\t";
+    o << setw(10) << setfill(' ') << time.jogadores[i]->getNome() << "\t\t";
+    o << setw(10) << setfill(' ') << time.jogadores[i]->getPosicao() << "\t\t";
+    o << setw(10) << setfill(' ') << time.jogadores[i]->getvlrAtaque() << "\t\t";
+    o << setw(10) << setfill(' ') << time.jogadores[i]->getvlrDefesa() << "\t\t";
+    o << setw(10) << setfill(' ') << time.jogadores[i]->getvlrPasse() << "\t\t";
     o << setw(10) << setfill(' ') << time.jogadores[i]->getHabilidade();
     o << endl;
   }
