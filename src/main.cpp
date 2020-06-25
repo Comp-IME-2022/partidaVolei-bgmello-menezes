@@ -13,6 +13,7 @@ int menuInicial() {
   cout << "\t\t\t|    2 - Adicionar jogador            |\n";
   cout << "\t\t\t|    3 - Remover jogador              |\n";
   cout << "\t\t\t|    4 - Simular partida              |\n";
+  cout << "\t\t\t|    5 - Mostrar time                 |\n";
   cout << "\t\t\t|    0 - Sair                         |\n";
   cout << "\t\t\t|                                     |\n";
   cout << "\t\t\t======================================\n";
@@ -40,7 +41,7 @@ int main() {
     if (opcaoMenu == 1) {
       cout << "Digite o nome do time: \n";
       cin >> nomeTime;
-      criaTime(nomeTime, times);
+      if (not criaTime(nomeTime, times)) cout << "Time já existe!" << endl;
     }
 
     if (opcaoMenu == 2) {
@@ -188,9 +189,19 @@ int main() {
         }
       }
     }
+    if (opcaoMenu == 5) {
+      string nomeTime;
+      cout << "Digite o nome do time:";
+      cin >> nomeTime;
+      if (times.find(nomeTime) == times.end())
+        cout << "Time nao existe!\n\n";
+      else {
+        cout << *times[nomeTime] << endl;
+      }
+    }
 
   } while ((opcaoMenu == 1) || (opcaoMenu == 2) || (opcaoMenu == 3) ||
-           (opcaoMenu == 4));
+           (opcaoMenu == 4) || (opcaoMenu == 5));
 
   return 0;
 }
