@@ -122,7 +122,7 @@ int main() {
       cout << "Digite o time do jogador\n\n";
       cin >> nomeTime;
       cout << "\n\n";
-      if (times.find(nomeTime) != times.end())
+      if (times.find(nomeTime) == times.end())
         cout << "Time não encontrado\n\n";
       else {
         string nome;

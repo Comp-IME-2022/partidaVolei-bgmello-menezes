@@ -13,6 +13,7 @@ class Jogador {
   const int pesoAtaque, pesoDefesa, pesoPasse;
   const string posicao, nome;
   int vlrAtaque, vlrDefesa, vlrPasse, habilidadeAdi;
+
  public:
   Jogador(string nome, string posicao, int vlrAtaque, int vlrDefesa,
           int vlrPasse, int habilidadeAdi, int pesoAtaque, int pesoDefesa,

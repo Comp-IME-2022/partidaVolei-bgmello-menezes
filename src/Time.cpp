@@ -135,8 +135,10 @@ ostream& operator<<(ostream& o, const Time& time) {
   for (int i = 0; i < (int)time.jogadores.size(); ++i) {
     o << setw(10) << setfill(' ') << time.jogadores[i]->getNome() << "\t\t";
     o << setw(10) << setfill(' ') << time.jogadores[i]->getPosicao() << "\t\t";
-    o << setw(10) << setfill(' ') << time.jogadores[i]->getvlrAtaque() << "\t\t";
-    o << setw(10) << setfill(' ') << time.jogadores[i]->getvlrDefesa() << "\t\t";
+    o << setw(10) << setfill(' ') << time.jogadores[i]->getvlrAtaque()
+      << "\t\t";
+    o << setw(10) << setfill(' ') << time.jogadores[i]->getvlrDefesa()
+      << "\t\t";
     o << setw(10) << setfill(' ') << time.jogadores[i]->getvlrPasse() << "\t\t";
     o << setw(10) << setfill(' ') << time.jogadores[i]->getHabilidade();
     o << endl;

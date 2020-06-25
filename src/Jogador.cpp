@@ -23,13 +23,13 @@ string Jogador ::getNome() { return this->nome; }
 string Jogador ::getPosicao() { return this->posicao; }
 
 /* Retorna o valor de ataque do jogador */
-int Jogador ::getvlrAtaque(){ return this->vlrAtaque; }
+int Jogador ::getvlrAtaque() { return this->vlrAtaque; }
 
 /* Retorna o valor de defesa do jogador */
-int Jogador ::getvlrDefesa(){ return this->vlrDefesa; }
+int Jogador ::getvlrDefesa() { return this->vlrDefesa; }
 
 /* Retorna o valor de passe do jogador */
-int Jogador ::getvlrPasse(){ return this->vlrPasse; }
+int Jogador ::getvlrPasse() { return this->vlrPasse; }
 
 /* Construtor da classe derivada Levantador */
 Levantador ::Levantador(string nome, int vlrAtaque, int vlrDefesa, int vlrPasse,
