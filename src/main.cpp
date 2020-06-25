@@ -107,9 +107,11 @@ int main() {
           } else {
             habilidadeAdi = 0;
           }
-          times[nomeTime]->addJogador(nome, posicao, vlrAtaque, vlrDefesa,
-                                      vlrPasse, habilidadeAdi);
-          cout << "Jogador adicionado com sucesso\n\n";
+          if (times[nomeTime]->addJogador(nome, posicao, vlrAtaque, vlrDefesa,
+                                          vlrPasse, habilidadeAdi))
+            cout << "Jogador adicionado com sucesso\n\n";
+          else
+            cout << "Jogador nao pode ser adicionado ao time\n\n";
           for (auto time = times.begin(); time != times.end(); ++time) {
             cout << *(time->second);
           }

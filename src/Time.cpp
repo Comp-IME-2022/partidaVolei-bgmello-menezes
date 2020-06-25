@@ -68,6 +68,11 @@ bool Time ::addJogador(string nome, string posicao, int vlrAtaque,
     }
     return false;
   }
+
+  for (int i = 0; i < (int)jogadores.size(); i++) {
+    if (jogadores[i]->getNome() == nome) return false;
+  }
+
   tipoJogadores[posicao]++;
   if (posicao == "levantador") {
     jogadores.push_back(unique_ptr<Jogador>(
