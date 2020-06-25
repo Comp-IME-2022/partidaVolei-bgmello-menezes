@@ -1,7 +1,7 @@
 #include "Jogador.h"
 
 Jogador ::Jogador(string nome, string posicao, int vlrAtaque, int vlrDefesa,
-                  int vlrPasse, int habilidaeAdi, int pesoAtaque,
+                  int vlrPasse, int habilidadeAdi, int pesoAtaque,
                   int pesoDefesa, int pesoPasse)
     : pesoAtaque(pesoAtaque),
       pesoDefesa(pesoDefesa),

@@ -117,7 +117,10 @@ bool Partida::resetPartida() {
 bool Partida::playPoint() {
   string ganhador("");
 
-  if (not this->timeA.isValid() or not this->timeB.isValid()) return false;
+  if (not this->timeA.isValid() or not this->timeB.isValid()) {
+    cout << "Algum dos time e invalido" << endl;
+    return this->ended = true;
+  }
 
   double habilidadeA = this->timeA.getHabilidadeTotal();
   double habilidadeB = this->timeB.getHabilidadeTotal();

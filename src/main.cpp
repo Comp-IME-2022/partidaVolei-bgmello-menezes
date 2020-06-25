@@ -167,7 +167,7 @@ int main() {
             do {
               cin >> numPontos;
               cout << "\n\n";
-              for (int i = 0; i < numPontos or partida.isEnded(); ++i)
+              for (int i = 0; i < numPontos and not partida.isEnded(); ++i)
                 partida.playPoint();
               cout << partida;
               cout << "\n\n";
@@ -181,7 +181,7 @@ int main() {
             do {
               cin >> numPontos;
               cout << "\n\n";
-              for (int i = 0; i < numPontos or partida.isEnded(); ++i)
+              for (int i = 0; i < numPontos and not partida.isEnded(); ++i)
                 partida.playPoint();
               cout << partida;
               cout << "\n\n";
