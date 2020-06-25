@@ -129,23 +129,24 @@ ostream& operator<<(ostream& o, const Time& time) {
     o << "Nao ha jogadores nesse time\n\n";
     return o;
   }
+
+  int width = 20;
+
   o << "Os jogadores do time sao" << endl << endl;
-  o << setw(10) << setfill(' ') << "Nome\t\t";
-  o << setw(10) << setfill(' ') << "Posicao\t\t";
-  o << setw(10) << setfill(' ') << "Valor ataque\t\t";
-  o << setw(10) << setfill(' ') << "Valor defesa\t\t";
-  o << setw(10) << setfill(' ') << "Valor passe\t\t";
-  o << setw(10) << setfill(' ') << "Habilidade total" << endl;
+  o << setw(width) << setfill(' ') << "Nome";
+  o << setw(width) << setfill(' ') << "Posicao";
+  o << setw(width) << setfill(' ') << "Valor ataque";
+  o << setw(width) << setfill(' ') << "Valor defesa";
+  o << setw(width) << setfill(' ') << "Valor passe";
+  o << setw(width) << setfill(' ') << "Habilidade total" << endl;
 
   for (int i = 0; i < (int)time.jogadores.size(); ++i) {
-    o << setw(10) << setfill(' ') << time.jogadores[i]->getNome() << "\t\t";
-    o << setw(10) << setfill(' ') << time.jogadores[i]->getPosicao() << "\t\t";
-    o << setw(10) << setfill(' ') << time.jogadores[i]->getvlrAtaque()
-      << "\t\t";
-    o << setw(10) << setfill(' ') << time.jogadores[i]->getvlrDefesa()
-      << "\t\t";
-    o << setw(10) << setfill(' ') << time.jogadores[i]->getvlrPasse() << "\t\t";
-    o << setw(10) << setfill(' ') << time.jogadores[i]->getHabilidade();
+    o << setw(width) << setfill(' ') << time.jogadores[i]->getNome();
+    o << setw(width) << setfill(' ') << time.jogadores[i]->getPosicao();
+    o << setw(width) << setfill(' ') << time.jogadores[i]->getvlrAtaque();
+    o << setw(width) << setfill(' ') << time.jogadores[i]->getvlrDefesa();
+    o << setw(width) << setfill(' ') << time.jogadores[i]->getvlrPasse();
+    o << setw(width) << setfill(' ') << time.jogadores[i]->getHabilidade();
     o << endl;
   }
   return o;
