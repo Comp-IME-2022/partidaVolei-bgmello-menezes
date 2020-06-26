@@ -95,19 +95,19 @@ Jogador ::Jogador(string nome, string posicao, int vlrAtaque, int vlrDefesa,
 }
 
 /** Retorna o nome do jogador */
-string Jogador ::getNome() { return this->nome; }
+inline string Jogador ::getNome() { return this->nome; }
 
 /** Retorna a posicao do jogador */
-string Jogador ::getPosicao() { return this->posicao; }
+inline string Jogador ::getPosicao() { return this->posicao; }
 
 /** Retorna o valor de ataque do jogador */
-int Jogador ::getvlrAtaque() { return this->vlrAtaque; }
+inline int Jogador ::getvlrAtaque() { return this->vlrAtaque; }
 
 /** Retorna o valor de defesa do jogador */
-int Jogador ::getvlrDefesa() { return this->vlrDefesa; }
+inline int Jogador ::getvlrDefesa() { return this->vlrDefesa; }
 
 /** Retorna o valor de passe do jogador */
-int Jogador ::getvlrPasse() { return this->vlrPasse; }
+inline int Jogador ::getvlrPasse() { return this->vlrPasse; }
 
 /** Construtor da classe derivada Levantador */
 Levantador ::Levantador(string nome, int vlrAtaque, int vlrDefesa, int vlrPasse,
@@ -175,9 +175,9 @@ int Oposto ::getHabilidade() {
           this->vlrPasse * pesoPasse + 20 * habilidadeAdi);
 }
 
-/** Destrutor virtual da classe*/
+/** Destrutor virtual da classe */
 
-Jogador ::~Jogador(){}
+Jogador ::~Jogador() {}
 
 /** Classe do time */
 
@@ -215,7 +215,7 @@ Time ::Time(string nomeTime) {
 
 /** Retorna o nome do time */
 
-string Time ::getNome() const { return this->nomeTime; }
+inline string Time ::getNome() const { return this->nomeTime; }
 
 bool Time ::isValid() {
   /** Verifica se o time está de acordo com as regras */
@@ -539,7 +539,7 @@ bool Partida::playPoint() {
 /**
  * Retorna se a partida ja esta terminada
  */
-bool Partida::isEnded() { return this->ended; }
+inline bool Partida::isEnded() { return this->ended; }
 /**
  * Adiciona um ponto a um time, se o jogo
  * ja estiver terminado, entao nao faz nada
@@ -607,7 +607,8 @@ void Partida::printJogadores(ostream& o, string nomeTime) {
  */
 ostream& operator<<(ostream& o, const Partida& partida) {
   o << setw(10) << "Nome do Time\t\t";
-  for (int i = 1; i <= (int)partida.setsA.size(); i++) o << "Set " << i << "\t\t";
+  for (int i = 1; i <= (int)partida.setsA.size(); i++)
+    o << "Set " << i << "\t\t";
 
   o << "Pontos\t\tSacando" << endl;
 

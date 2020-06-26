@@ -17,19 +17,19 @@ Jogador ::Jogador(string nome, string posicao, int vlrAtaque, int vlrDefesa,
 }
 
 /** Retorna o nome do jogador */
-string Jogador ::getNome() { return this->nome; }
+inline string Jogador ::getNome() { return this->nome; }
 
 /** Retorna a posicao do jogador */
-string Jogador ::getPosicao() { return this->posicao; }
+inline string Jogador ::getPosicao() { return this->posicao; }
 
 /** Retorna o valor de ataque do jogador */
-int Jogador ::getvlrAtaque() { return this->vlrAtaque; }
+inline int Jogador ::getvlrAtaque() { return this->vlrAtaque; }
 
 /** Retorna o valor de defesa do jogador */
-int Jogador ::getvlrDefesa() { return this->vlrDefesa; }
+inline int Jogador ::getvlrDefesa() { return this->vlrDefesa; }
 
 /** Retorna o valor de passe do jogador */
-int Jogador ::getvlrPasse() { return this->vlrPasse; }
+inline int Jogador ::getvlrPasse() { return this->vlrPasse; }
 
 /** Construtor da classe derivada Levantador */
 Levantador ::Levantador(string nome, int vlrAtaque, int vlrDefesa, int vlrPasse,
@@ -97,6 +97,6 @@ int Oposto ::getHabilidade() {
           this->vlrPasse * pesoPasse + 20 * habilidadeAdi);
 }
 
-/** Destrutor virtual da classe*/
+/** Destrutor virtual da classe */
 
 Jogador ::~Jogador() {}

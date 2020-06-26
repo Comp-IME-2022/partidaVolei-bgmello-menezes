@@ -20,7 +20,7 @@ Time ::Time(string nomeTime) {
 
 /** Retorna o nome do time */
 
-string Time ::getNome() const { return this->nomeTime; }
+inline string Time ::getNome() const { return this->nomeTime; }
 
 bool Time ::isValid() {
   /** Verifica se o time está de acordo com as regras */
