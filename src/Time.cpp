@@ -11,19 +11,19 @@ Time::Time(const Time& time) {
 }
 
 Time ::Time(string nomeTime) {
-  /* Construtor da classe time */
+  /** Construtor da classe time */
 
   this->nomeTime = nomeTime;
   jogadores.clear();
   tipoJogadores.clear();
 }
 
-/* Retorna o nome do time */
+/** Retorna o nome do time */
 
 string Time ::getNome() const { return this->nomeTime; }
 
 bool Time ::isValid() {
-  /* Verifica se o time está de acordo com as regras */
+  /** Verifica se o time está de acordo com as regras */
 
   if (tipoJogadores["levantador"] != 1 or tipoJogadores["libero"] != 1 or
       tipoJogadores["oposto"] != 1 or tipoJogadores["meia"] != 2 or
@@ -33,7 +33,7 @@ bool Time ::isValid() {
 }
 
 int Time ::getHabilidadeTotal() {
-  /* Retorna a habilidade total do time */
+  /** Retorna a habilidade total do time */
 
   if (!this->isValid()) {
     return -1;
@@ -45,7 +45,7 @@ int Time ::getHabilidadeTotal() {
 
 bool Time ::addJogador(string nome, string posicao, int vlrAtaque,
                        int vlrDefesa, int vlrPasse, int habilidadeAdi) {
-  /* Adiciona um novo jogador ao time
+  /** Adiciona um novo jogador ao time
    *
    * Argumentos:
    * string nome        ---> nome do jogador
@@ -103,7 +103,7 @@ bool Time ::addJogador(string nome, string posicao, int vlrAtaque,
 }
 
 bool Time ::removeJogador(string nome) {
-  /* Remove jogador do time
+  /** Remove jogador do time
    *
    * Argumentos: string nome    ---> nome do jogador
    *
@@ -123,7 +123,7 @@ bool Time ::removeJogador(string nome) {
 }
 
 ostream& operator<<(ostream& o, const Time& time) {
-  /* Printa as informações dos jogadores */
+  /** Printa as informações dos jogadores */
 
   if ((int)time.jogadores.size() == 0) {
     o << "Nao ha jogadores nesse time\n\n";

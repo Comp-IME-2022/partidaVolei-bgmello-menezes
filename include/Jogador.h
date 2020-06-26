@@ -6,12 +6,12 @@
 
 using namespace std;
 
-/* Classe base para os jogadores */
+/** Classe base para os jogadores */
 
 class Jogador {
  protected:
   const int pesoAtaque, pesoDefesa, pesoPasse;
-  const string posicao, nome;
+  const string nome, posicao;
   int vlrAtaque, vlrDefesa, vlrPasse, habilidadeAdi;
 
  public:
@@ -25,7 +25,10 @@ class Jogador {
   int getvlrPasse();
   virtual int getHabilidade() = 0;
   virtual unique_ptr<Jogador> clone() = 0;
+  virtual ~Jogador() = 0;
 };
+
+/** Classes derivadas para cada posição */
 
 class Levantador : public Jogador {
  public:

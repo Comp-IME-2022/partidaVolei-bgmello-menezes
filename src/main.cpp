@@ -13,7 +13,6 @@ int menuInicial() {
   cout << "\t\t\t|    2 - Adicionar jogador            |\n";
   cout << "\t\t\t|    3 - Remover jogador              |\n";
   cout << "\t\t\t|    4 - Simular partida              |\n";
-  cout << "\t\t\t|    5 - Mostrar time                 |\n";
   cout << "\t\t\t|    0 - Sair                         |\n";
   cout << "\t\t\t|                                     |\n";
   cout << "\t\t\t======================================\n";
@@ -31,7 +30,7 @@ bool criaTime(string nomeTime, map<string, unique_ptr<Time>>& times) {
 }
 
 int main() {
-  int opcaoMenu, opcaoObjeto = 1;
+  int opcaoMenu;
   string nomeTime;
   map<string, unique_ptr<Time>> times;
   set<string> posicoes{"levantador", "libero", "meia", "ponta", "oposto"};
@@ -41,7 +40,8 @@ int main() {
     if (opcaoMenu == 1) {
       cout << "Digite o nome do time: \n";
       cin >> nomeTime;
-      if (not criaTime(nomeTime, times)) cout << "Time já existe!" << endl;
+      criaTime(nomeTime, times);
+      cout << "Time criado com sucesso!\n\n";
     }
 
     if (opcaoMenu == 2) {
@@ -50,7 +50,7 @@ int main() {
       cout << "\n\n";
       if (times.find(nomeTime) == times.end()) {
         char c;
-        cout << "Time não encontrado\n\n";
+        cout << "Time nao encontrado\n\n";
         cout << "Deseja cria-lo?\n";
         cout << "S para sim, N para nao\n\n";
         cin >> c;
@@ -107,11 +107,9 @@ int main() {
           } else {
             habilidadeAdi = 0;
           }
-          if (times[nomeTime]->addJogador(nome, posicao, vlrAtaque, vlrDefesa,
-                                          vlrPasse, habilidadeAdi))
-            cout << "Jogador adicionado com sucesso\n\n";
-          else
-            cout << "Jogador nao pode ser adicionado ao time\n\n";
+          times[nomeTime]->addJogador(nome, posicao, vlrAtaque, vlrDefesa,
+                                      vlrPasse, habilidadeAdi);
+          cout << "Jogador adicionado com sucesso\n\n";
           for (auto time = times.begin(); time != times.end(); ++time) {
             cout << *(time->second);
           }
@@ -125,7 +123,7 @@ int main() {
       cout << "Digite o time do jogador\n\n";
       cin >> nomeTime;
       cout << "\n\n";
-      if (times.find(nomeTime) == times.end())
+      if (times.find(nomeTime) != times.end())
         cout << "Time não encontrado\n\n";
       else {
         string nome;
@@ -159,29 +157,27 @@ int main() {
           cout << "2 - " << nomeTime2 << "\n";
           cin >> escolha;
           cout << "\n\n";
+          Time timeA = *times[nomeTime1];
+          Time timeB = *times[nomeTime2];
           if (escolha == 1) {
-            Time timeA = *times[nomeTime1];
-            Time timeB = *times[nomeTime2];
             Partida partida(timeA, timeB, true);
             cout << "Escolha quantos pontos deseja simular\n\n";
             do {
               cin >> numPontos;
               cout << "\n\n";
-              for (int i = 0; i < numPontos and not partida.isEnded(); ++i)
+              for (int i = 0; i < numPontos or partida.isEnded(); ++i)
                 partida.playPoint();
               cout << partida;
               cout << "\n\n";
               cout << "Deseja simular mais pontos? (Digite 0 caso nao)\n\n";
             } while (numPontos != 0);
           } else {
-            Time timeA = *times[nomeTime1];
-            Time timeB = *times[nomeTime2];
             Partida partida(timeA, timeB, false);
             cout << "Escolha quantos pontos deseja simular\n\n";
             do {
               cin >> numPontos;
               cout << "\n\n";
-              for (int i = 0; i < numPontos and not partida.isEnded(); ++i)
+              for (int i = 0; i < numPontos or partida.isEnded(); ++i)
                 partida.playPoint();
               cout << partida;
               cout << "\n\n";
@@ -191,19 +187,8 @@ int main() {
         }
       }
     }
-    if (opcaoMenu == 5) {
-      string nomeTime;
-      cout << "Digite o nome do time:";
-      cin >> nomeTime;
-      if (times.find(nomeTime) == times.end())
-        cout << "Time nao existe!\n\n";
-      else {
-        cout << *times[nomeTime] << endl;
-      }
-    }
 
   } while ((opcaoMenu == 1) || (opcaoMenu == 2) || (opcaoMenu == 3) ||
-           (opcaoMenu == 4) || (opcaoMenu == 5));
-
+           (opcaoMenu == 4));
   return 0;
 }

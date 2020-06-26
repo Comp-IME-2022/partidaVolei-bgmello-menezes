@@ -215,18 +215,19 @@ void Partida::printJogadores(ostream& o, string nomeTime) {
  */
 ostream& operator<<(ostream& o, const Partida& partida) {
   o << setw(10) << "Nome do Time\t\t";
-  for (int i = 1; i <= partida.setsA.size(); i++) o << "Set " << i << "\t\t";
+  for (int i = 1; i <= (int)partida.setsA.size(); i++)
+    o << "Set " << i << "\t\t";
 
   o << "Pontos\t\tSacando" << endl;
 
   o << setw(10) << partida.timeA.getNome() << "\t\t";
-  for (int i = 0; i < partida.setsA.size(); i++)
+  for (int i = 0; i < (int)partida.setsA.size(); i++)
     o << partida.setsA[i] << "\t\t";
 
   o << partida.pointsA << "\t\t" << (partida.sacadorA ? "*" : "") << endl;
 
   o << setw(10) << partida.timeB.getNome() << "\t\t";
-  for (int i = 0; i < partida.setsB.size(); i++)
+  for (int i = 0; i < (int)partida.setsB.size(); i++)
     o << partida.setsB[i] << "\t\t";
 
   o << partida.pointsB << "\t\t" << (partida.sacadorA ? "" : "*") << endl;

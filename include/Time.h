@@ -9,7 +9,7 @@
 #include "Jogador.h"
 using namespace std;
 
-/* Classe do time */
+/** Classe do time */
 
 class Time {
  public:
