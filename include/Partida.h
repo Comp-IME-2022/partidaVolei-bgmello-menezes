@@ -40,7 +40,7 @@ class Partida {
 
   Partida(string nomeA, string nomeB, bool sacadorA);
 
-  bool isEnded();
+  inline bool isEnded() { return this->ended; }
 
   bool addJogador(string nomeTime, string nomeJogador, string posicao,
                   int vlrAtaque, int vlrDefesa, int vlrPasse,

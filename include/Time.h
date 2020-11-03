@@ -19,7 +19,10 @@ class Time {
   Time(const Time&);
   Time(string nomeTime);
   int getHabilidadeTotal();
-  string getNome() const;
+
+  /** Retorna o nome do time */
+  inline string getNome() const { return this->nomeTime; }
+
   bool isValid();
   bool addJogador(string nome, string posicao, int vlrAtaque, int vlrDefesa,
                   int vlrPasse, int habilidadeAdi);

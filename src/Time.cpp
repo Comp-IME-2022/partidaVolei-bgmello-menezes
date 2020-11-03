@@ -18,10 +18,6 @@ Time ::Time(string nomeTime) {
   tipoJogadores.clear();
 }
 
-/** Retorna o nome do time */
-
-inline string Time ::getNome() const { return this->nomeTime; }
-
 bool Time ::isValid() {
   /** Verifica se o time está de acordo com as regras */
 

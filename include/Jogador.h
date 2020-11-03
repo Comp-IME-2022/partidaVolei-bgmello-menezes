@@ -18,11 +18,22 @@ class Jogador {
   Jogador(string nome, string posicao, int vlrAtaque, int vlrDefesa,
           int vlrPasse, int habilidadeAdi, int pesoAtaque, int pesoDefesa,
           int pesoPasse);
-  string getNome();
-  string getPosicao();
-  int getvlrAtaque();
-  int getvlrDefesa();
-  int getvlrPasse();
+
+  /** Retorna o nome do jogador */
+  inline string getNome() { return this->nome; }
+
+  /** Retorna a posicao do jogador */
+  inline string getPosicao() { return this->posicao; }
+
+  /** Retorna o valor de ataque do jogador */
+  inline int getvlrAtaque() { return this->vlrAtaque; }
+
+  /** Retorna o valor de defesa do jogador */
+  inline int getvlrDefesa() { return this->vlrDefesa; }
+
+  /** Retorna o valor de passe do jogador */
+  inline int getvlrPasse() { return this->vlrPasse; }
+
   virtual int getHabilidade() = 0;
   virtual unique_ptr<Jogador> clone() = 0;
   virtual ~Jogador() = 0;

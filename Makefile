@@ -1,6 +1,5 @@
 CC := g++
 SRCDIR := src
-TESTDIR := test
 INCLUDEDIR := include
 BINDIR := bin
 TARGET := $(BINDIR)/jogoDeVolei
@@ -8,16 +7,11 @@ TARGET := $(BINDIR)/jogoDeVolei
 SOURCES := $(shell find $(SRCDIR) -type f | grep -v main.cpp)
 
 .PHONY: all
-all: format test build
-
-.PHONY: test
-test: $(SOURCES)
-	mkdir -p bin/
-	$(CC) -o $(BINDIR)/test $(SOURCES) $(TESTDIR)/test.cpp -I$(INCLUDEDIR)
+all: format build
 
 .PHONY: format
 format:	
-	clang-format $(SRCDIR)/* $(INCLUDEDIR)/* $(TESTDIR)/* -i
+	clang-format $(SRCDIR)/* $(INCLUDEDIR)/* -i
 
 .PHONY: build
 build: $(SOURCES)

@@ -145,10 +145,6 @@ bool Partida::playPoint() {
 }
 
 /**
- * Retorna se a partida ja esta terminada
- */
-inline bool Partida::isEnded() { return this->ended; }
-/**
  * Adiciona um ponto a um time, se o jogo
  * ja estiver terminado, entao nao faz nada
  */
